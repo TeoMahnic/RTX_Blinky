@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compileCommands": "${workspaceFolder}/tmp/FRDM-K32L3A6/FRDM-K32L3A6/Debug/compile_commands.json"
+        }
+    ],
+    "version": 4
+}

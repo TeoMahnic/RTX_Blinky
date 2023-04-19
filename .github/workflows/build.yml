@@ -1,0 +1,53 @@
+name: Build and Run GetStarted example
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+env:
+  ARMLMD_LICENSE_FILE: /opt/data.dat
+  ARM_TOOL_VARIANT: ult
+  AC6_TOOLCHAIN_6_18_0: /opt/armcompiler/bin
+  LD_LIBRARY_PATH: /opt/VHT
+  AVH_PATH: /opt/VHT
+
+jobs:
+  build:
+    name: Build and Run
+    runs-on: AVH-Runner
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache vcpkg
+        uses: actions/cache@v3
+        with:
+          key: vcpkg
+          path: /home/runner/.vcpkg
+
+      - name: Cache packs
+        uses: actions/cache@v3
+        with:
+          key: packs
+          path: /home/runner/.cache/arm/packs
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: cpp
+          queries: security-and-quality
+      - name: Build the example
+        run: |
+          . <(curl https://aka.ms/vcpkg-init.sh -L)
+          vcpkg activate
+          cbuild get_started.csolution.yml --packs --update-rte --configuration .debug+AVH
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+
+      - name: Run the example
+        run: |
+           echo "${{env.AVH_PATH}}" >> $GITHUB_PATH
+           /opt/VHT/VHT_Corstone_SSE-300_Ethos-U55  -f ./app/Board/AVH_MPS3_Corstone-300/vht_config.txt -a ./out/AVH/AVH/Debug/Debug+AVH.axf --stat $*

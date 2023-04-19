@@ -1,0 +1,3 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/app/Board/AVH_MPS3_Corstone-300/tmp/AVH/Debug/AVH"
+}
