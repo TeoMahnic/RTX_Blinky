@@ -19,20 +19,20 @@
 #include "RTE_Components.h"
 #include  CMSIS_device_header
 #include "cmsis_os2.h"
-#include "cmsis_vio.h"
+//#include "cmsis_vio.h"
 #ifdef RTE_Compiler_EventRecorder
 #include "EventRecorder.h"
 #endif
 
 #include "main.h"
 
-extern int stdio_init (void);
+//extern int stdio_init (void);
 
 int main (void) {
 
-  stdio_init();                         // Initialize stdio
+  //stdio_init();                         // Initialize stdio
 
-  vioInit();                            // Initialize Virtual I/O
+  //vioInit();                            // Initialize Virtual I/O
 
 #if defined(RTE_Compiler_EventRecorder) && \
     (defined(__MICROLIB) || \
