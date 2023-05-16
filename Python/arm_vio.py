@@ -20,10 +20,9 @@ if system() == "Windows":
 else:
     from getch import getch
 
-
 ## Set verbosity level
-verbosity = logging.DEBUG
-#verbosity = logging.ERROR
+#verbosity = logging.DEBUG
+verbosity = logging.ERROR
 
 # [debugging] Verbosity settings
 level = { 10: "DEBUG",  20: "INFO",  30: "WARNING",  40: "ERROR" }

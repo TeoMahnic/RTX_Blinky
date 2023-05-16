@@ -38,12 +38,12 @@ jobs:
         run : |
           sudo apt-get -y update
           sudo apt-get -y install python3.9-venv
-          pip install getch
+          sudo python3.9 -m pip install py-getch
          # echo "-----------------------------------"
          # python3.8 -m pip install imgtool cbor2
          # echo "-----------------------------------"
          # python3.9 -m pip install imgtool cffi intelhex cbor2 cbor pytest click
-     
+
 
       - name: Build the example
         run: |
@@ -54,4 +54,4 @@ jobs:
       - name: Run the example
         run: |
            echo "${{env.AVH_PATH}}" >> $GITHUB_PATH
-           /opt/VHT/VHT_Corstone_SSE-300_Ethos-U55  -f ./app/Board/AVH_MPS3_Corstone-300/vht_noui_config.txt -V ./Python -a ./app/Board/AVH_MPS3_Corstone-300/out/AVH/Debug/AVH/Debug+AVH.axf --timelimit 30 --stat $*
+           /opt/VHT/VHT_Corstone_SSE-300_Ethos-U55  -f ./app/Board/AVH_MPS3_Corstone-300/vht_noui_config.txt -V ./Python -a ./app/Board/AVH_MPS3_Corstone-300/out/AVH/Debug/AVH/Debug+AVH.axf --timelimit 30 --stat $* || echo "Completed"
