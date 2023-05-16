@@ -33,19 +33,21 @@ jobs:
           key: packs
           path: /home/runner/.cache/arm/packs
 
-#      - name: Initialize CodeQL
-#        uses: github/codeql-action/init@v2
-#        with:
-#          languages: cpp
-#          queries: security-and-quality
+      # INSTALL tools needed by the build
+      - name: Install tools
+        run : |
+          sudo apt-get -y update
+          sudo apt-get -y install python3.9-venv
+         # echo "-----------------------------------"
+         # python3.8 -m pip install imgtool cbor2
+         # echo "-----------------------------------"
+         # python3.9 -m pip install imgtool cffi intelhex cbor2 cbor pytest click
+
       - name: Build the example
         run: |
           . <(curl https://aka.ms/vcpkg-init.sh -L)
           vcpkg activate
           cbuild Blinky.csolution.yml --packs --update-rte --configuration .Debug+AVH
-
-#      - name: Perform CodeQL Analysis
-#        uses: github/codeql-action/analyze@v2
 
       - name: Run the example
         run: |
