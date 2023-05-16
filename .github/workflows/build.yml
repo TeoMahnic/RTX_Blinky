@@ -38,10 +38,12 @@ jobs:
         run : |
           sudo apt-get -y update
           sudo apt-get -y install python3.9-venv
+          pip install getch
          # echo "-----------------------------------"
          # python3.8 -m pip install imgtool cbor2
          # echo "-----------------------------------"
          # python3.9 -m pip install imgtool cffi intelhex cbor2 cbor pytest click
+     
 
       - name: Build the example
         run: |
