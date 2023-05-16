@@ -19,7 +19,7 @@
 #include "RTE_Components.h"
 #include  CMSIS_device_header
 #include "cmsis_os2.h"
-//#include "cmsis_vio.h"
+#include "cmsis_vio.h"
 #ifdef RTE_Compiler_EventRecorder
 #include "EventRecorder.h"
 #endif

@@ -51,22 +51,22 @@ __NO_RETURN static void thrLED (void *arg) {
       vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
       vioSetSignal(vioLED1, vioLEDon);          // Switch LED1 on
       g_ledSet = 2;                             // set global variable to '2'
-      printf("LED0 Off, LED1 On\r\n");          // Print message
+//      printf("LED0 Off, LED1 On\r\n");          // Print message
       osDelay(100U);                            // Delay 100 ms
       vioSetSignal(vioLED0, vioLEDon);          // Switch LED0 on
       vioSetSignal(vioLED1, vioLEDoff);         // Switch LED1 off
       g_ledSet = 1;                             // set global variable to '1'
-      printf("LED0 On, LED1 Off\r\n");          // Print message
+//      printf("LED0 On, LED1 Off\r\n");          // Print message
       osDelay(100U);                            // Delay 100 ms
     }
     else {
       vioSetSignal(vioLED0, vioLEDon);          // Switch LED0 on
       g_ledSet = 1;                             // set global variable to '1'
-      printf("LED0 On\r\n");                    // Print message
+//      printf("LED0 On\r\n");                    // Print message
       osDelay(500U);                            // Delay 500 ms
       vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
       g_ledSet = 0;                             // set global variable to '0'
-      printf("LED0 Off\r\n");                   // Print message
+//      printf("LED0 Off\r\n");                   // Print message
       osDelay(500U);                            // Delay 500 ms
     }
   }
