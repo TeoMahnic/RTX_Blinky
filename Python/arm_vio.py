@@ -63,7 +63,7 @@ def automatedButton(delay_s):
 def stopModel(delay_s):
     # Delay execution for delay_s
     threading.Event().wait(delay_s)
-    print(f"Stopping the model. (Timeout {delay_s} s reached)")
+    print(f"Stopping the model. (Timeout {delay_s} s reached)", flush=True)
     signal.raise_signal(signal.SIGTERM)
 
 
