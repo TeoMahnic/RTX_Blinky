@@ -1,9 +1,4 @@
 {
-  "default-registry": {
-    "kind": "git",
-    "baseline": "032d9d0820db290ce9ff644dabfdf564343013ae",
-    "repository": "https://github.com/microsoft/vcpkg"
-  },
   "registries": [
     {
       "kind": "artifact",
@@ -12,18 +7,14 @@
     },
     {
       "kind": "artifact",
-      "location": "https://aka.ms/vcpkg-artifacts-community",
-      "name": "community"
-    },
-    {
-      "kind": "artifact",
-      "location": "https://aka.ms/vcpkg-artifacts-cmsis",
-      "name": "open-cmsis-pack"
+      "location": "https://artifacts.keil.arm.com/vcpkg-ce-registry/registry.zip",
+      "name": "arm"
     }
   ],
   "requires": {
-    "community:cmake": "3.24.2 *",
-    "open-cmsis-pack:tools/open-cmsis-pack/ctools": "1.5.0 *",
-    "community:ninja": "1.10.2 *"
+    "microsoft:cmake": "^3.25.2",
+    "microsoft:ninja": "^1.10.2",
+    "arm:tools/open-cmsis-pack/ctools": "^1.5.0",
+    "arm:models/arm/avh-fvp": "^11.22.39"
   }
 }

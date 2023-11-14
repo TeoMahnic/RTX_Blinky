@@ -54,7 +54,7 @@ jobs:
       - name: Run the example
         run: |
           echo "${{env.AVH_PATH}}" >> $GITHUB_PATH
-          /opt/VHT/VHT_Corstone_SSE-300_Ethos-U55 \
-            -f ./app/Board/AVH_MPS3_Corstone-300/vht_noui_config.txt -V ./Python \
+          FVP_Corstone_SSE-300_Ethos-U55 \
+            -f ./app/Board/AVH_MPS3_Corstone-300/vht_noui_config.txt -C mps3_board.v_path=./Python \
             -a ./app/Board/AVH_MPS3_Corstone-300/out/AVH/Debug/AVH/Debug+AVH.axf \
             --timelimit 30 --stat $* || test $? -eq 143
